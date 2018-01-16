@@ -1,13 +1,16 @@
 const express = require( 'express');
 const volleyball = require('volleyball');
 const nunjucks = require('nunjucks');
-const routes = require('./routes')
+const routes = require('./routes');
+const bodyParser = require('body-parser')
 
 const app = express();
 
 app.use(volleyball);
-app.use('/', routes);
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use('/', routes);
 
 
 app.set('view engine', 'html');
