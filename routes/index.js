@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
   res.render('index', { tweets: tweets });
 });
 
-router.get('/tweets/:name', function(req, res){
+router.get('/user/:name', function(req, res){
 	// console.log('potato');
   var name = req.params.name;
   var list = tweetBank.find({name: name});
@@ -20,10 +20,7 @@ router.get('/tweets/:name', function(req, res){
 // need help with this functionality!!
 router.get('/tweets/:id', function(req, res){
   var id = parseInt(req.params.id);
-  console.log(typeof id);
-  var list = tweetBank.find({id: id});
-  console.log(list);
-  // console.log('potato')
+  var list = tweetBank.find({'id': id});
   res.render( 'index', {tweets: list});
 });
 
