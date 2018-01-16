@@ -2,7 +2,8 @@ const express = require( 'express');
 const volleyball = require('volleyball');
 const nunjucks = require('nunjucks');
 const routes = require('./routes');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const socketio = require('socket.io');
 
 const app = express();
 
@@ -10,14 +11,16 @@ app.use(volleyball);
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use('/', routes);
+app.use('/', routes(io));
+
 
 
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 nunjucks.configure('views', {noCache: true});
 
-app.listen(3000)
+var server = app.listen(3000)
+var io = socketio.listen(server);
 
 
 
