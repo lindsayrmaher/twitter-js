@@ -9,7 +9,7 @@ module.exports = {
 var data  = [];
 
 function add (name, content) {
-  data.push({ name: name, content: content, id: data.length.toString()});
+  data.push({ name: name, content: content, id: data.length});
 
 }
 

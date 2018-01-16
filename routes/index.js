@@ -18,15 +18,14 @@ router.get('/tweets/:name', function(req, res){
 
 
 // need help with this functionality!!
-// router.get('/tweets/7', function(req, res){
-// 	console.log(req.params.name);
-//   var id = req.params.id;
-//   console.log(typeof id);
-//   var list = tweetBank.find({id: id});
-//   console.log(list);
-//   // console.log('potato')
-//   res.render( 'index', {tweets: list});
-// });
+router.get('/tweets/:id', function(req, res){
+  var id = parseInt(req.params.id);
+  console.log(typeof id);
+  var list = tweetBank.find({id: id});
+  console.log(list);
+  // console.log('potato')
+  res.render( 'index', {tweets: list});
+});
 
 
 router.use(express.static('public'));
