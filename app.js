@@ -1,7 +1,31 @@
 const express = require( 'express');
 const volleyball = require('volleyball');
 const nunjucks = require('nunjucks');
+const routes = require('./routes')
+
 const app = express();
+
+app.use(volleyball);
+app.use('/', routes);
+
+app.set('view engine', 'html');
+app.engine('html', nunjucks.render);
+nunjucks.configure('views', {noCache: true});
+
+app.listen(3000)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // app.use(function(req, res, next) {
 // 	console.log(res.statusCode);
@@ -14,33 +38,25 @@ const app = express();
 // 	next()
 // })
 
-var locals = {
+// var locals = {
 
-	title: "An Example",
-	
-	people: [
+// 	title: "An Example",
 
-	{name: "Gandolf"},
-	{name: "Frodo"},
-	{name: "Hermione"}
+// 	people: [
 
-	]
-}
+// 	{name: "Gandolf"},
+// 	{name: "Frodo"},
+// 	{name: "Hermione"}
 
-app.set('view engine', 'html');
-app.engine('html', nunjucks.render);
-nunjucks.configure('views', {noCache: true});
+// 	]
+// }
 
-app.use(volleyball);
+// app.get('/', function(req, res){
+// 	res.render('index.html', locals);
+// });
 
-app.get('/', function(req, res){
-	res.render('index.html', locals);
-});
+// app.get('/', (req, res) => res.send("Our super SICK message."))
 
-app.get('/', (req, res) => res.send("Our super SICK message."))
-
-app.get('/news', (req, res) => res.send("An even SICKER message about news."))
-
-app.listen(3000)
+// app.get('/news', (req, res) => res.send("An even SICKER message about news."))
 
 //ayyy yooo what up
