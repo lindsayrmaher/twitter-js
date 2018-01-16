@@ -18,8 +18,9 @@
 
     <div class="tweetbox">
       <div><img src="" alt=""></div>
-      <li class="by content">{{tweet.name}}</li>
-      <li class="content">{{tweet.content}}</li>
+      <li class="content by"><a href="/tweets/{{tweet.name}}">{{tweet.name}}</a> </li>
+      <li class="content"><a href="/tweets/{{tweet.id}}">{{tweet.content}}</a></li>
+
     </div>
 
     {% endfor %}

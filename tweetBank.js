@@ -9,7 +9,8 @@ module.exports = {
 var data  = [];
 
 function add (name, content) {
-  data.push({ name: name, content: content});
+  data.push({ name: name, content: content, id: data.length.toString()});
+
 }
 
 function list () {
@@ -35,14 +36,16 @@ const getFakeTweet = function () {
   return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
 
-// for (let i = 0; i < 10; i++) {
-//   module.exports.add(getFakeName(), getFakeTweet());
+for (let i = 0; i < 10; i++) {
+  module.exports.add(getFakeName(), getFakeTweet());
+}
+
+// for (let i = 0; i < 5; i++) {
+//   module.exports.add("Mimi", getFakeTweet());
 // }
 
-for (let i = 0; i < 5; i++) {
-  module.exports.add("Mimi", getFakeTweet());
-}
+// for (let j = 0; j < 5; j++) {
+//   module.exports.add("Lindsay", getFakeTweet());
+// }
 
-for (let j = 0; j < 5; j++) {
-  module.exports.add("Lindsay", getFakeTweet());
-}
+// console.log(typeof data[0].id)
