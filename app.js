@@ -8,16 +8,13 @@ const app = express();
 app.use(volleyball);
 app.use('/', routes);
 
+
+
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 nunjucks.configure('views', {noCache: true});
 
 app.listen(3000)
-
-
-
-
-
 
 
 

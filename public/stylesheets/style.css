@@ -52,7 +52,19 @@ code {
 }
 .content {
   margin-left: 60px;
+  list-style-type: none;
+  color: #00aced
 }
-.content .by {
+.content.by {
   font-weight: bold;
 }
+
+/* .tweetContent{
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.tweetName{
+  list-style-type: none;
+  margin-top: 10px;
+} */
