@@ -2,6 +2,8 @@
 	const router = express.Router();
 
 	// could use one line instead: const router = require('express').Router();
+	// Next for something async and helps it continue on once it's done
+	// handle errors
 	const tweetBank = require('../tweetBank');
 
 module.exports = function(io) {
@@ -30,9 +32,9 @@ module.exports = function(io) {
 		// console.log(req.body);
 	  var name = req.body.name;
 	  var text = req.body.text;
-	  var newTweet = tweetBank.add(name, text);
-	  // io.sockets.emit('new_tweet', newTweet);
-	  res.redirect('/');
+	  tweetBank.add(name, text);
+	  io.sockets.emit('new_tweet', tweetBank[tweetBank.index - 1]);
+	  // res.redirect('/');
 	});
 
 
